@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: rust_server
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./Backend
+    restart: on-failure
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://user:password@db:5432/rust_server
+    expose:
+      - "8080"
+
+  frontend:
+    build: ./Frontend
+    expose:
+      - "80"
+    depends_on:
+      - backend
+  
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "3000:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - frontend
+      - backend
+
+volumes:
+  db_data:
