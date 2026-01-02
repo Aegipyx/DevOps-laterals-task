@@ -12,7 +12,7 @@ const Login =  () => {
             user_email : values.email,
             user_password: values.password
         }
-        axios.post('/loginUser', obj)
+        axios.post('/api/loginUser', obj)
             .then(async (resp) => {
                 const { data } = resp
                 if (data) {
