@@ -15,7 +15,7 @@ const Register = () => {
             user_email : values.email,
             user_password: values.password
         }
-        axios.post('/createUser', obj)
+        axios.post('/api/createUser', obj)
             .then(resp => {
                 const { data } = resp
                 if (data) {
