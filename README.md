@@ -34,4 +34,3 @@ Compilers: <i>Rust v1.7.0 and node v18.0.0</i><br />
 - ```cd Frontend```<br />
 - ```npm i``` [install dependencies]<br />
 - ```npm start``` [start react server]<br />
-<i>Test</i>
