@@ -7,7 +7,7 @@ pipeline {
         DOCKERHUB_CREDS = credentials('dockerhub-creds')
     }
 
-    trigger {
+    triggers {
         pollSCM('H/5 * * * *')
     }
 
