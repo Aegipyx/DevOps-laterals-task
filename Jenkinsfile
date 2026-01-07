@@ -17,8 +17,8 @@ pipeline {
         stage('Build Images'){
             steps {
                 sh '''
-                  docker build -t $FRONTEND_IMAGE ./frontend
-                  docker build -t $BACKEND_IMAGE ./backend
+                  docker build -t $FRONTEND_IMAGE ./Frontend
+                  docker build -t $BACKEND_IMAGE ./Backend
                 '''
             }
         }
