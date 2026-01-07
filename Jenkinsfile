@@ -7,6 +7,10 @@ pipeline {
         DOCKERHUB_CREDS = credentials('dockerhub-creds')
     }
 
+    trigger {
+        pollSCM('H/5 * * * *')
+    }
+
     stages {
         stage('Checkout') {
             steps {
