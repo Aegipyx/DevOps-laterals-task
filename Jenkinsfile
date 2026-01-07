@@ -1,8 +1,10 @@
 pipeline {
     agent any
 
-    triggers {
-        pollSCM('H/5 * * * *')
+    environment {
+        FRONTEND_IMAGE = 'aegipyx/login-app-frontend:latest'
+        BACKEND_IMAGE  = 'aegipyx/login-app-backend:latest'
+        DOCKERHUB_CREDS = credentials('dockerhub-creds')
     }
 
     stages {
@@ -12,11 +14,31 @@ pipeline {
             }
         }
 
+        stage('Build Images'){
+            steps {
+                sh '''
+                  docker build -t $FRONTEND_IMAGE ./frontend
+                  docker build -t $BACKEND_IMAGE ./backend
+                '''
+            }
+        }
+
+        stage('Push Images') {
+            steps {
+                sh '''
+                  echo $DOCKERHUB_CREDS_PSW | docker login -u $DOCKERHUB_CREDS_USR --password-stdin
+                  docker push $FRONTEND_IMAGE
+                  docker push $BACKEND_IMAGE
+                '''
+            }
+        }
+
         stage('Deploy') {
             steps {
                 sh '''
-                  docker-compose down || true
-                  docker-compose up -d --build
+                  docker-compose down
+                  docker-compose pull
+                  docker-compose up -d
                 '''
             }
         }

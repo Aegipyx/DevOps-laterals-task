@@ -9,7 +9,7 @@ services:
       - db_data:/var/lib/postgresql/data
 
   backend:
-    build: ./Backend
+    image: aegipyx/login-app-backend:latest
     restart: on-failure
     depends_on:
       - db
@@ -19,7 +19,7 @@ services:
       - "8080"
 
   frontend:
-    build: ./Frontend
+    image: aegipyx/login-app-frontend:latest
     expose:
       - "80"
     depends_on:
