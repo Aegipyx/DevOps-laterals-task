@@ -145,3 +145,20 @@ Stage 4: **Deploy**
 3. Ensure Docker Hub credentials are configured in Jenkins.
 4. Open the existing pipeline job and click Build Now.
 5. Once the pipeline completes successfully, open: http://localhost:3000
+
+### If Jenkins has not been set up
+1. First run this command in terminal:
+```
+docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts
+```
+2. Open http://localhost:8080
+3. Get admin password using this command in docker
+```
+docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+```
+4. Create an account.
+
+To open Jenkins Terminal:
+```
+docker exec -it jenkins /bin/bash
+```
