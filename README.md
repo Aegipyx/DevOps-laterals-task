@@ -1,5 +1,7 @@
 # DevOps Laterals Task – Login Application
 
+**Level 1 and Level 2 - Complete**
+
 ## Architecture
 
 - **Frontend**  
