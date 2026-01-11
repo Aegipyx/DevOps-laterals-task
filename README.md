@@ -77,7 +77,7 @@ Stage 4: **Deploy**
 ![Jenkins Pipeline Status](screenshots/jenkinsPipelineStatus.png)
 
 **Pipeline Deploy Stage Logs**
-'''
+```
 + docker-compose down
  Container login-app-pipeline-nginx-1  Stopping
  Container login-app-pipeline-nginx-1  Stopped
@@ -124,7 +124,7 @@ Stage 4: **Deploy**
  Container login-app-pipeline-frontend-1  Started
  Container login-app-pipeline-nginx-1  Starting
  Container login-app-pipeline-nginx-1  Started
-'''
+```
 
 ### Docker Containers Running
 ![Docker Containers](screenshots/dockerRunningContainers.png)
