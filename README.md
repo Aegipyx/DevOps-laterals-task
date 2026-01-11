@@ -39,26 +39,26 @@ A Jenkins Pipeline is used to automate the entire workflow.
 
 ### Pipeline Flow
 
-1. **Checkout**  
+Stage 1: **Checkout**  
    Jenkins pulls the latest code from GitHub.
 
-2. **Build Docker Images**  
+Stage 2: **Build Docker Images**  
    - Frontend image
    - Backend image
 
-3. **Push to Container Registry**  
+Stage 3: **Push to Container Registry**  
    - Images are pushed to Docker Hub.
    - Credentials are securely managed using Jenkins Credentials.
 
-4. **Deploy**  
+Stage 4: **Deploy**  
    - Jenkins redeploys the application using Docker Compose.
-   - On every push, the running application is automatically updated.
+   - The Jenkins pipeline polls the Github repo every 5 minutes and automatically trigger a rebuild and redeployment when changes are detected.
 
 ## Container Registry
 
 - Docker Hub is used as the container registry.
 - Application images are versioned and pushed automatically by Jenkins.
-- Deployment uses registry images to ensure consistency across environments.
+- Deployment uses registry images.
 
 ## Technologies Used
 
@@ -72,6 +72,8 @@ A Jenkins Pipeline is used to automate the entire workflow.
 ## Screenshots & Logs
 
 This repository includes:
+
+
 - Jenkins pipeline successful run
 - Docker containers running after deployment
 - Application accessible via browser through Nginx
