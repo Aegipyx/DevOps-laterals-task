@@ -71,12 +71,70 @@ Stage 4: **Deploy**
 
 ## Screenshots & Logs
 
-This repository includes:
+### Jenkins Pipeline Success
+![Jenkins Pipeline](screenshots/jenkinsPipeline.png)
+![Jenkins Pipeline Runs](screenshots/jenkinsPipelineRuns.png)
+![Jenkins Pipeline Status](screenshots/jenkinsPipelineStatus.png)
 
+**Pipeline Deploy Stage Logs**
+'''
++ docker-compose down
+ Container login-app-pipeline-nginx-1  Stopping
+ Container login-app-pipeline-nginx-1  Stopped
+ Container login-app-pipeline-nginx-1  Removing
+ Container login-app-pipeline-nginx-1  Removed
+ Container login-app-pipeline-frontend-1  Stopping
+ Container login-app-pipeline-frontend-1  Stopped
+ Container login-app-pipeline-frontend-1  Removing
+ Container login-app-pipeline-frontend-1  Removed
+ Container login-app-pipeline-backend-1  Stopping
+ Container login-app-pipeline-backend-1  Stopped
+ Container login-app-pipeline-backend-1  Removing
+ Container login-app-pipeline-backend-1  Removed
+ Container login-app-pipeline-db-1  Stopping
+ Container login-app-pipeline-db-1  Stopped
+ Container login-app-pipeline-db-1  Removing
+ Container login-app-pipeline-db-1  Removed
+ Network login-app-pipeline_default  Removing
+ Network login-app-pipeline_default  Removed
++ docker-compose pull
+ nginx Skipped - No image to be pulled 
+ db Pulling 
+ frontend Pulling 
+ backend Pulling 
+ backend Pulled 
+ frontend Pulled 
+ db Pulled 
++ docker-compose up -d
+ Network login-app-pipeline_default  Creating
+ Network login-app-pipeline_default  Created
+ Container login-app-pipeline-db-1  Creating
+ Container login-app-pipeline-db-1  Created
+ Container login-app-pipeline-backend-1  Creating
+ Container login-app-pipeline-backend-1  Created
+ Container login-app-pipeline-frontend-1  Creating
+ Container login-app-pipeline-frontend-1  Created
+ Container login-app-pipeline-nginx-1  Creating
+ Container login-app-pipeline-nginx-1  Created
+ Container login-app-pipeline-db-1  Starting
+ Container login-app-pipeline-db-1  Started
+ Container login-app-pipeline-backend-1  Starting
+ Container login-app-pipeline-backend-1  Started
+ Container login-app-pipeline-frontend-1  Starting
+ Container login-app-pipeline-frontend-1  Started
+ Container login-app-pipeline-nginx-1  Starting
+ Container login-app-pipeline-nginx-1  Started
+'''
 
-- Jenkins pipeline successful run
-- Docker containers running after deployment
-- Application accessible via browser through Nginx
+### Docker Containers Running
+![Docker Containers](screenshots/dockerRunningContainers.png)
+![Docker Images](screenshots/dockerImages.png)
+
+### Application Running
+![App Login Page](screenshots/appLoginPage.png)
+![App Register Page](screenshots/appRegisterPage.png)
+![App Home Page](screenshots/appHomePage.png)
+
 
 ## How to Run via Jenkins CI/CD
 
